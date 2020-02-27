@@ -57,54 +57,73 @@ class Linked_List:
     def size(self):
         temp= self.Node1
         count=0
-        while temp.data is not None:
-                count+=1
-                temp.data=temp.nextNode
-                if temp.nextNode is None:
-                    break
-                
-        print (count)
-        return
-                
+        #while the loop is not end
+        while(temp):
+            count+=1
+            temp=temp.nextNode
+        return count
+
+    def append(self,item):
+        temp=Node(item)
+        if self.Node1 is None:
+            self.Node1=temp
+            return
+        lastIndex=self.Node1
+        #Find the last index
+        while(lastIndex.nextNode):
+            lastIndex=lastIndex.nextNode
+        #After finding the last index that has an item, then change
+        #that index item which is "None" to be the target item
+        lastIndex.nextNode=temp
+
+    def index(self,item):
+        temp = self.Node1
+        count=0
+        while temp is not None:
+            index=count
+            count+=1
+            if temp.data==item:
+                return index
+            temp=temp.nextNode
+
+        return False
+
+    def insert(self,pos,item):
+        temp=self.Node1
+        count=0
+        while temp is not None:
+            index=count
+            count+=1
+            if index==pos:
+                temp.data=item
+                return
+            temp=temp.nextNode
+        return False
+        
+        
+        
         
 
             
-
-        
-        
     def printLL(self):
-        printNode=self.Node1
-        while printNode is not None:
-            print (printNode.data)
-            printNode=printNode.nextNode
+        temp=self.Node1
+        while(temp):
+            print (temp.data, end=" ")
+            temp=temp.nextNode
+            
 
 LL = Linked_List()
-if LL.isEmpty():
-    print("True")
-else:
-    print("False")
-LL.add(3)
-LL.add(4)
 LL.add(5)
-
+LL.append(3)
+LL.add(7)
+LL.add(8)
+LL.append(56)
+print(LL.index(53))
+LL.insert(2,87)
 LL.printLL()
-if LL.search(4):
-    print("True")
-else:
-    print("False")
-if LL.isEmpty():
-    print("True")
-else:
-    print("False")
-LL.size()
 
 
-LL.remove(4)
-LL.printLL()
-if LL.search(4):
-    print("True")
-else:
-    print("False")
+
 
 
 
