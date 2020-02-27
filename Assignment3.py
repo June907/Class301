@@ -99,6 +99,19 @@ class Linked_List:
                 return
             temp=temp.nextNode
         return False
+
+    def pop(self):
+        if self.Node1 is None:
+            return False
+        temp=self.Node1
+        prev=None
+        
+        while(temp):
+            if temp.nextNode==None:
+                return prev
+            prev=temp
+            temp=temp.nextNode
+
         
         
         
@@ -120,6 +133,7 @@ LL.add(8)
 LL.append(56)
 print(LL.index(53))
 LL.insert(2,87)
+print(LL.pop())
 LL.printLL()
 
 
