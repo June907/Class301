@@ -100,18 +100,45 @@ class Linked_List:
             temp=temp.nextNode
         return False
 
-    def pop(self):
-        if self.Node1 is None:
-            return False
-        temp=self.Node1
-        prev=None
+    def popLast(self):
         
-        while(temp):
-            if temp.nextNode==None:
-                return prev
+        if self.Node1 is None:
+            return "The List is Empty"
+        elif self.Node1.nextNode is None:
+            
+            self.Node1=None
+            secondLast=self.Node1
+            #It only returns aa bunch numbers To Be Continue
+            return #"The Last item is"+str(secondLast)
+        else:
+            temp=self.Node1
+            while temp.nextNode.nextNode is not None:
+                temp=temp.nextNode
+            #secondLast=temp.nextNode
+            temp.nextNode=None
+            return #secondLast
+
+
+
+    def pop(self,pos):
+        temp=self.Node1
+        index=0
+        if self.Node1 == None:
+            return "The List is Empety"
+        while temp is not None:  
+            if index==pos:
+                break
+            index+=1
             prev=temp
             temp=temp.nextNode
-
+        
+            
+        prev.nextNode=temp.nextNode
+        temp=None
+        
+                
+        
+            
         
         
         
@@ -127,13 +154,10 @@ class Linked_List:
 
 LL = Linked_List()
 LL.add(5)
-LL.append(3)
+LL.add(6)
 LL.add(7)
-LL.add(8)
-LL.append(56)
-print(LL.index(53))
-LL.insert(2,87)
-print(LL.pop())
+#LL.insert(2,83)
+print(LL.pop(2))
 LL.printLL()
 
 
