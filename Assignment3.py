@@ -22,6 +22,9 @@ class Linked_List:
         newNode = Node(item)
         
         newNode.nextNode=self.Node1
+        
+        if self.Node1 is not None:
+            self.Node1.prev=newNode
         self.Node1=newNode
 
     def remove(self,item):
@@ -77,6 +80,7 @@ class Linked_List:
         #After finding the last index that has an item, then change
         #that index item which is "None" to be the target item
         lastIndex.nextNode=temp
+        temp.prev=lastIndex
 
     def index(self,item):
         temp = self.Node1
@@ -160,28 +164,25 @@ class Linked_List:
   
         print ("\nTraversal in forward direction")
         while(node is not None): 
-            print (" % d" %(node.data)), 
+            print (node.data, end=" "), 
             last = node 
             node = node.nextNode
   
         print ("\nTraversal in reverse direction")
         while(last is not None): 
-            print (" % d" %(last.data)), 
+            print (last.data, end=" "), 
             last = last.prev 
 
 
             
 
 LL = Linked_List()
-LL.add(5)
-LL.add(6)
-LL.add(7)
-LL.append(52)
-LL.insert(2,83)
-print(LL.popLast())
-LL.printLL()
 
+LL.add(8)
+LL.add(3)
+LL.append(6)
 
+LL.printList(LL.Node1)
 
 
 
