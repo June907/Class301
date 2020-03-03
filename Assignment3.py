@@ -2,6 +2,8 @@ class Node:
     def __init__(self,idata):
         self.data=idata
         self.nextNode = None
+        self.prev=None
+        
 
     def setdata(self,idata):
         self.data = idata
@@ -15,7 +17,7 @@ class Node:
 class Linked_List:
     def __init__(self):
         self.Node1 = None
-
+        
     def add(self,item):
         newNode = Node(item)
         
@@ -98,6 +100,7 @@ class Linked_List:
                 temp.data=item
                 return
             temp=temp.nextNode
+            
         return False
 
     def popLast(self):
@@ -108,15 +111,15 @@ class Linked_List:
             
             self.Node1=None
             secondLast=self.Node1
-            #It only returns aa bunch numbers To Be Continue
-            return #"The Last item is"+str(secondLast)
+            
+            return secondLast.data
         else:
             temp=self.Node1
             while temp.nextNode.nextNode is not None:
                 temp=temp.nextNode
-            #secondLast=temp.nextNode
+            secondLast=temp.nextNode
             temp.nextNode=None
-            return #secondLast
+            return secondLast.data
 
 
 
@@ -135,6 +138,7 @@ class Linked_List:
             
         prev.nextNode=temp.nextNode
         temp=None
+        return 
         
                 
         
@@ -149,16 +153,34 @@ class Linked_List:
         temp=self.Node1
         while(temp):
             print (temp.data, end=" ")
+            
             temp=temp.nextNode
+
+    def printList(self, node): 
+  
+        print ("\nTraversal in forward direction")
+        while(node is not None): 
+            print (" % d" %(node.data)), 
+            last = node 
+            node = node.nextNode
+  
+        print ("\nTraversal in reverse direction")
+        while(last is not None): 
+            print (" % d" %(last.data)), 
+            last = last.prev 
+
+
             
 
 LL = Linked_List()
 LL.add(5)
 LL.add(6)
 LL.add(7)
-#LL.insert(2,83)
-print(LL.pop(2))
+LL.append(52)
+LL.insert(2,83)
+print(LL.popLast())
 LL.printLL()
+
 
 
 
