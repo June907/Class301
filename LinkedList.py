@@ -142,7 +142,9 @@ class Linked_List:
             
         prev.nextNode=temp.nextNode
         temp=None
-        return 
+        return
+
+
         
                 
         
@@ -180,9 +182,13 @@ LL = Linked_List()
 
 LL.add(8)
 LL.add(3)
-LL.append(6)
-
-LL.printList(LL.Node1)
+LL.add(6)
+LL.add(7)
+LL.add(888)
+LL.insert(2,6521)
+#LL.append(6)
+LL.printLL()
+#LL.printList(LL.Node1)
 
 
 
