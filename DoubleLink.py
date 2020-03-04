@@ -20,15 +20,37 @@ class stack:
             self.head = new_node 
 
     def pop(self):
+        if self.head is None:
+            return "The list is empty"
+        temp=self.head
+        self.head=self.head.next
+        
+        return temp.data 
+
+    def peek(self):
         if self.head is not None:
-            newhead=self.head
-            self.head=None
-        return newhead.data
+            return self.head.data
+        
+    def isEmpty(self):
+        if self.head is None:
+            return "The list is empty"
+        else:
+            return False
+        
+    def size(self):
+        temp=self.head
+        count=0
+        while(temp):
+            count+=1
+            temp=temp.next
+        return count
+
+        
     
     def printStack(self,node):
         while(node is not None):
             print(node.data, end=" ")
-            #last = node
+            last = node
             node= node.next
             
 
@@ -36,8 +58,14 @@ stack=stack()
 stack.push(7)
 stack.push(1)
 stack.push(521)
-#print(stack.pop())
 stack.printStack(stack.head)
+#print(stack.peek())
+print(stack.isEmpty())
+print(stack.size())
+
+
+
+
 
 
         
