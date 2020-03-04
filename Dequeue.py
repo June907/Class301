@@ -4,11 +4,22 @@ class Node:
         self.next=None
         self.prev=None
 
-class Quenue:
+class Deque:
     def __init__(self):
         self.head=None
 
-    def enqueue(self,item):
+    def addFront(self,item):
+          
+        if self.head is None: 
+            self.head = Node(data) 
+        else: 
+            new_node = Node(data) 
+            self.head.prev = new_node 
+            new_node.next = self.head 
+            new_node.prev = None
+            self.head = new_node
+
+    def addRear(self,item):
         temp=Node(item)
         if self.head is None:
             self.head=temp
@@ -19,38 +30,12 @@ class Quenue:
         last.next=temp
         temp.prev=last
 
-    def dequeue(self):
+    def removeFront(self):
         if self.head is None:
             return "The list is empty"
         temp=self.head
         self.head=self.head.next
         
         return temp.data
-
-    def isEmpty(self):
-        if self.head is None:
-            return "The list is empty"
-        else:
-            return False
         
-    def size(self):
-        temp=self.head
-        count=0
-        while(temp):
-            count+=1
-            temp=temp.next
-        return count
-    
-
-    def print(self,node):
-        while(node is not None):
-            print(node.data, end=" ")
-            last = node
-            node= node.next
-
-q=Quenue()
-
-q.enqueue(5)
-q.enqueue(2)
-q.print((q.head))
         

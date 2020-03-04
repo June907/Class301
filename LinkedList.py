@@ -187,8 +187,8 @@ LL.add(7)
 LL.add(888)
 LL.insert(2,6521)
 #LL.append(6)
-LL.printLL()
-#LL.printList(LL.Node1)
+#LL.printLL()
+LL.printList(LL.Node1)
 
 
 
